@@ -1,0 +1,291 @@
+{
+	"meta": {
+		"formatversion": "1",
+		"day": "2023-05-14",
+		"showtype": "Grand Final",
+		"bettingLocked": false,
+		"finished": false		
+	},
+	"songs": [
+		{
+			"country": "ALB",
+			"order": 1,
+			"points": 0,
+			"title": "Sekret",
+			"artist": "Ronela Hajati"
+		},
+		{
+			"country": "ARM",
+			"order": 2,
+			"points": 0,
+			"title": "Snap",
+			"artist": "Rosa Linn"
+		},
+		{
+			"country": "AUS",
+			"order": 3,
+			"points": 0,
+			"title": "Not The Same",
+			"artist": "Sheldon Riley"
+		},
+		{
+			"country": "AUT",
+			"order": 4,
+			"points": 0,
+			"title": "Halo",
+			"artist": "LUM!X feat. Pia Maria"
+		},
+		{
+			"country": "AZE",
+			"order": 5,
+			"points": 0,
+			"title": "Fade To Black",
+			"artist": "Nadir Rustamli"
+		},
+		{
+			"country": "BEL",
+			"order": 6,
+			"points": 0,
+			"title": "Miss You",
+			"artist": "Jérémie Makiese"
+		},
+		{
+			"country": "BUL",
+			"order": 7,
+			"points": 0,
+			"title": "Intention",
+			"artist": "Intelligent Music Project"
+		},
+		{
+			"country": "CRO",
+			"order": 8,
+			"points": 0,
+			"title": "Guilty Pleasure",
+			"artist": "Mia Dimšić"
+		},
+		{
+			"country": "CYP",
+			"order": 9,
+			"points": 0,
+			"title": "Ela",
+			"artist": "Andromache"
+		},
+		{
+			"country": "CZE",
+			"order": 10,
+			"points": 0,
+			"title": "Lights Off",
+			"artist": "We Are Domi"
+		},
+		{
+			"country": "DEN",
+			"order": 11,
+			"points": 0,
+			"title": "The Show",
+			"artist": "REDDI"
+		},
+		{
+			"country": "EST",
+			"order": 12,
+			"points": 0,
+			"title": "Hope",
+			"artist": "Stefan"
+		},
+		{
+			"country": "FIN",
+			"order": 13,
+			"points": 0,
+			"title": "Jezebel",
+			"artist": "The Rasmus"
+		},
+		{
+			"country": "FRA",
+			"order": 14,
+			"points": 0,
+			"title": "Fulenn",
+			"artist": "Alvan & Ahez"
+		},
+		{
+			"country": "GEO",
+			"order": 15,
+			"points": 0,
+			"title": "Lock Me In",
+			"artist": "Circus Mircus"
+		},
+		{
+			"country": "GER",
+			"order": 16,
+			"points": 0,
+			"title": "Rockstars",
+			"artist": "Malik Harris"
+		},
+		{
+			"country": "GRE",
+			"order": 17,
+			"points": 0,
+			"title": "Die Together",
+			"artist": "Amanda Georgiadi Tenfjord"
+		},
+		{
+			"country": "ISL",
+			"order": 18,
+			"points": 0,
+			"title": "Með Hækkandi Sól",
+			"artist": "Systur"
+		},
+		{
+			"country": "IRL",
+			"order": 19,
+			"points": 0,
+			"title": "That’s Rich",
+			"artist": "Brooke"
+		},
+		{
+			"country": "ISR",
+			"order": 20,
+			"points": 0,
+			"title": "I.M",
+			"artist": "Michael Ben David"
+		},
+		{
+			"country": "ITA",
+			"order": 21,
+			"points": 0,
+			"title": "Brividi",
+			"artist": "Mahmood & BLANCO"
+		},
+		{
+			"country": "LVA",
+			"order": 22,
+			"points": 0,
+			"title": "Eat Your Salad",
+			"artist": "Citi Zēni"
+		},
+		{
+			"country": "LTU",
+			"order": 23,
+			"points": 0,
+			"title": "Sentimentai",
+			"artist": "Monika Liu"
+		},
+		{
+			"country": "MLT",
+			"order": 24,
+			"points": 0,
+			"title": "I Am What I Am",
+			"artist": "Emma Muscat"
+		},
+		{
+			"country": "MDA",
+			"order": 25,
+			"points": 0,
+			"title": "Trenulețul",
+			"artist": "Zdob şi Zdub & Advahov Brothers"
+		},
+		{
+			"country": "MNE",
+			"order": 26,
+			"points": 0,
+			"title": "Breathe",
+			"artist": "Vladana"
+		},
+		{
+			"country": "NED",
+			"order": 27,
+			"points": 0,
+			"title": "De Diepte",
+			"artist": "S10"
+		},
+		{
+			"country": "MKD",
+			"order": 28,
+			"points": 0,
+			"title": "Circles",
+			"artist": "Andrea"
+		},
+		{
+			"country": "NOR",
+			"order": 29,
+			"points": 0,
+			"title": "Give That Wolf A Banana",
+			"artist": "Subwoolfer"
+		},
+		{
+			"country": "POL",
+			"order": 30,
+			"points": 0,
+			"title": "River",
+			"artist": "Ochman"
+		},
+		{
+			"country": "POR",
+			"order": 31,
+			"points": 0,
+			"title": "Saudade, Saudade",
+			"artist": "MARO"
+		},
+		{
+			"country": "ROU",
+			"order": 32,
+			"points": 0,
+			"title": "Llámame",
+			"artist": "WRS"
+		},
+		{
+			"country": "SMR",
+			"order": 33,
+			"points": 0,
+			"title": "Stripper",
+			"artist": "Achille Lauro"
+		},
+		{
+			"country": "SRB",
+			"order": 34,
+			"points": 0,
+			"title": "In Corpore Sano",
+			"artist": "Konstrakta"
+		},
+		{
+			"country": "SVN",
+			"order": 35,
+			"points": 0,
+			"title": "Disko",
+			"artist": "LPS"
+		},
+		{
+			"country": "ESP",
+			"order": 36,
+			"points": 0,
+			"title": "SloMo",
+			"artist": "Chanel"
+		},
+		{
+			"country": "SWE",
+			"order": 37,
+			"points": 0,
+			"title": "Hold Me Closer",
+			"artist": "Cornelia Jakobs"
+		},
+		{
+			"country": "SUI",
+			"order": 38,
+			"points": 0,
+			"title": "Boys Do Cry",
+			"artist": "Marius Bear"
+		},
+		{
+			"country": "UKR",
+			"order": 39,
+			"points": 0,
+			"title": "Stefania",
+			"artist": "Kalush Orchestra"
+		},
+		{
+			"country": "UK",
+			"order": 40,
+			"points": 0,
+			"title": "SPACE MAN",
+			"artist": "Sam Ryder"
+		}
+	]
+}

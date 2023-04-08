@@ -1,0 +1,11 @@
+<svg version="1.0" id="Ebene_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 42" enable-background="new 0 0 60 42" xml:space="preserve">
+<g>
+<rect x="0" y="0" fill="#D20000" width="60" height="42"></rect>
+<polygon fill="#FFE600" points="0,0 0.6,0 30,20.249 59.4,0 60,0 60,6 0,36 0,42 0.6,42 30,21.751 59.4,42 60,42 60,36
+0.002,6.001 	"></polygon>
+<polygon fill="#FFE600" points="60,24 0,18 0,23.999 60,18 	"></polygon>
+<polygon fill="#FFE600" points="25.677,0 29.876,18 34.076,0 	"></polygon>
+<polygon fill="#FFE600" points="25.677,42 29.876,24 34.076,42 	"></polygon>
+<circle fill="#FFE600" stroke="#D20000" cx="29.876" cy="21" r="6.75"></circle>
+</g>
+</svg>

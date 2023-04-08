@@ -1,0 +1,29 @@
+{
+  "name": "livbet",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vite",
+    "build": "vite build",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src"
+  },
+  "dependencies": {
+    "core-js": "^3.25.5",
+    "vue": "^3.2.47",
+    "vue-draggable-next": "^2.1.1",
+    "vue-scrollto": "^2.20.0",
+    "@vitejs/plugin-vue": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/eslint-parser": "^7.19.1",
+    "eslint": "^8.24.0",
+    "eslint-plugin-vue": "^9.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "sass": "^1.55.0",
+    "typescript": "^4.8.4",
+    "vite": "^4.2.1" 
+  }
+}
