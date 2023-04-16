@@ -2,28 +2,24 @@
 
 import {ref} from 'vue';
 
+import type {Song} from '../@types/livbet';
+
 const emit = defineEmits(['delete']);
 
-defineProps ({
-	finished: Boolean,
-	locked: Boolean,
-	song: {
-		default: () => {},
-		type: Object
-	},
-	index: {
-		type: Number,
-		default: 0
-	}
-});
+defineProps<{
+	index: number,
+	finished: boolean,
+	locked: boolean,
+	song: Song
+}>();
 
 const deleteSong = () => {
 	emit('delete');
 };
 
-const publicPath = ref('/'<String>);
+const publicPath = ref<string>('/');
 
-const countrylabels = ref({
+const countrylabels = ref<Record<string, string>>({
 	'ALB': 'Albania',
 	'AND': 'Andorra',
 	'ARM': 'Armenia',
@@ -74,7 +70,7 @@ const countrylabels = ref({
 	'SWE': 'Sweden',
 	'TUR': 'Turkey',
 	'UKR': 'Ukraine'
-}<Object>);
+});
 	
 </script>
 

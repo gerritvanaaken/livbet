@@ -5,9 +5,9 @@ import BetSong from './BetSong.vue';
 import draggable from 'vuedraggable';
 import VueScrollTo from 'vue-scrollto';
 
-import {Player, Song, MetaData} from '../@types/livbet';
+import type {Player, Song, MetaData} from '../@types/livbet';
 
-const emit = defineEmits(['deletePlayer', 'appendSong', 'renamePlayer', 'changedRanking']);
+const emit = defineEmits(['deletePlayer', 'renamePlayer', 'changedRanking']);
 
 const props = defineProps<{
 	player: Player,
@@ -16,7 +16,9 @@ const props = defineProps<{
 	order: number
 }>();
 
-const playerName = ref<string>(props.player.name);
+/* ----------------------------- Player */
+
+const playerName = ref(props.player.name);
 
 const deletePlayer = () => {
 	emit('deletePlayer', props.order);
@@ -26,19 +28,21 @@ const renamePlayer = () => {
 	emit('renamePlayer', {index: props.order, name: playerName.value});
 };
 
+/* ----------------------------- Ranking */
+
+const ranking = ref<Song[]>(props.player.ranking);
+
 const deleteSong = (country: string) => {
 	ranking.value = ranking.value.filter(s => s.country !== country);
 };
-
-const ranking = ref<Song[]>(props.player.ranking);
 
 watch(() => ranking.value, () => {
 	emit('changedRanking', {index: props.order, ranking: ranking.value});
 });
 
-const checkForDuplicates = (_from: object, _to: object, songEl: HTMLElement) => {
+const checkForDuplicates = (_from: object, _to: object, songEl: HTMLLIElement) => {
 	return ranking.value.filter((s) => {
-		const draggingCountry: HTMLElement | null = songEl.querySelector('.song__countrycode');
+		const draggingCountry: HTMLSpanElement | null = songEl.querySelector('.song__countrycode');
 		if (!draggingCountry) return false;
 		if (s.country === draggingCountry.innerHTML) return true;
 	}).length === 0;
@@ -59,25 +63,25 @@ const importSongs = () => {
 	ranking.value = [...ranking.value];
 };
 
-const el = ref(null); // DOM element
+const el = ref<HTMLElement | null>(null); // DOM element
 
 const scrollUp = () => {
-	const scroller = el.value.getElementsByClassName('player__scroller')[0];
-	const firstsong = el.value.getElementsByClassName('songs__song')[0];
-	const offset = scroller.scrollTop;
+	const scroller = el.value?.getElementsByClassName('player__scroller')[0];
+	const firstsong = el.value?.getElementsByClassName('songs__song')[0];
+	const offset = scroller?.scrollTop;
 	VueScrollTo.scrollTo(firstsong, 300, {
 		container: scroller,
-		offset: offset - 200
+		offset: offset ? offset - 200 : -200
 	});
 };
 
 const scrollDown = () => {
-	const scroller = el.value.getElementsByClassName('player__scroller')[0];
-	const firstsong = el.value.getElementsByClassName('songs__song')[0];
-	const offset = scroller.scrollTop;
+	const scroller = el.value?.getElementsByClassName('player__scroller')[0];
+	const firstsong = el.value?.getElementsByClassName('songs__song')[0];
+	const offset = scroller?.scrollTop;
 	VueScrollTo.scrollTo(firstsong, 300, {
 		container: scroller,
-		offset: offset + 200
+		offset: offset ? offset + 200 : 200
 	});
 };
 
@@ -156,7 +160,8 @@ const score = computed(() => {
 				item-key="country"
 			>
 				<template #item="{element, index}">
-					<bet-song
+					<BetSong
+						:finished="false"
 						:index="index"
 						:song="element" 
 						:locked="meta.bettingLocked" 

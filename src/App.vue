@@ -21,8 +21,8 @@ const songdata = ref<SongData>({
 });
 
 const fetchSongs = async () => {
-	//const songurl = 'songs.json';
-	const songurl = 'https://esc.praegnanz.de/songs.json';
+	const songurl = 'songs.json';
+	//const songurl = 'https://esc.praegnanz.de/songs.json';
 
 	const response = await fetch(songurl + '?v=' + Date.now());
 	const data = await response.json();
@@ -54,16 +54,16 @@ const storePlayers = () => {
 };
 
 const deletePlayer = (index: number) => {
-	players.value = players.value.filter((p, i) => i !== index);
+	players.value = players.value.filter((_p, i) => i !== index);
 	storePlayers();
 };
 
-const renamePlayer = (obj: { index: number, name: string}) => {
+const renamePlayer = (obj: {index: number, name: string}) => {
 	players.value[obj.index].name = obj.name;
 	storePlayers();
 };
 
-const changedRanking = (obj: { index: number, ranking: Song[]}) => {
+const changedRanking = (obj: {index: number, ranking: Song[]}) => {
 	players.value[obj.index].ranking = obj.ranking;
 	storePlayers();
 };

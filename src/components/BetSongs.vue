@@ -1,48 +1,42 @@
 <script setup lang="ts">
 
-import {ref, inject, watch} from 'vue';
+import {ref, watch} from 'vue';
 import BetSong from './BetSong.vue';
 import draggable from 'vuedraggable';
 import VueScrollTo from 'vue-scrollto';
 
-const rootEl = ref(null);
+import type {Song, MetaData} from '../@types/livbet';
 
-const props = defineProps({
-	songs: {
-		default: () => [],
-		type: Array
-	},
-	meta: {
-		default: () => {},
-		type: Object
-	}
-});
+const rootEl = ref<HTMLDListElement | null>(null);
 
-const drag = ref(false);
+const props = defineProps<{
+	songs: Song[],
+	meta: MetaData
+}>();
 
-const mysongs = ref(props.songs<Array>);
+const mysongs = ref<Song[]>(props.songs);
 
 watch(() => props.songs, () => {
 	mysongs.value = props.songs;
 });
 
 const scrollUp = () => {
-	const scroller = rootEl.value.getElementsByClassName('songs__scroller')[0];
-	const firstsong = rootEl.value.getElementsByClassName('songs__song')[0];
-	const offset = scroller.scrollTop;
+	const scroller = rootEl.value?.getElementsByClassName('songs__scroller')[0];
+	const firstsong = rootEl.value?.getElementsByClassName('songs__song')[0];
+	const offset = scroller?.scrollTop;
 	VueScrollTo.scrollTo(firstsong, 300, {
 		container: scroller,
-		offset: offset - 200
+		offset: offset ? offset - 200 : -200
 	});
 };
 
 const scrollDown = () => {
-	const scroller = rootEl.value.getElementsByClassName('songs__scroller')[0];
-	const firstsong = rootEl.value.getElementsByClassName('songs__song')[0];
-	const offset = scroller.scrollTop;
+	const scroller = rootEl.value?.getElementsByClassName('songs__scroller')[0];
+	const firstsong = rootEl.value?.getElementsByClassName('songs__song')[0];
+	const offset = scroller?.scrollTop;
 	VueScrollTo.scrollTo(firstsong, 300, {
 		container: scroller,
-		offset: offset + 200
+		offset: offset ? offset + 200 : 200
 	});
 };
 

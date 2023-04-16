@@ -2,32 +2,25 @@
 
 import BetPlayer from './BetPlayer.vue';
 
+import type {Player, Song, MetaData} from '../@types/livbet';
+
 const emit = defineEmits(['deletePlayer', 'renamePlayer', 'changedRanking']);
 
-defineProps({
-	players: {
-		default: () => [],
-		type: Array
-	},
-	songs: {
-		default: () => [],
-		type: Array
-	},
-	meta: {
-		default: () => {},
-		type: Object
-	}
-});
+defineProps<{
+	players: Player[],
+	songs: Song[],
+	meta: MetaData
+}>();
 
-const renamePlayer = (obj) => {
+const renamePlayer = (obj: {index: number, name: string}) => {
 	emit('renamePlayer', obj);
 };
 
-const deletePlayer = (index) => {
+const deletePlayer = (index: number) => {
 	emit('deletePlayer', index);
 };
 
-const changedRanking = (obj) => {
+const changedRanking = (obj: {index: number, name: string}) => {
 	emit('changedRanking', obj);
 };
 
