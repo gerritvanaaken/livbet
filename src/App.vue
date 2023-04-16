@@ -5,7 +5,7 @@ import BetSongs from './components/BetSongs.vue';
 import BetPlayers from './components/BetPlayers.vue';
 import BetReadme from './components/BetReadme.vue';
 
-import type {SongData} from './@types/livbet';
+import type {SongData, Song, Player} from './@types/livbet';
 
 /* ----------------------------- Songs */
 
@@ -20,7 +20,6 @@ const songdata = ref<SongData>({
 	songs: []
 });
 
-
 const fetchSongs = async () => {
 	//const songurl = 'songs.json';
 	const songurl = 'https://esc.praegnanz.de/songs.json';
@@ -29,11 +28,11 @@ const fetchSongs = async () => {
 	const data = await response.json();
 
 	if (data.meta.bettingLocked) {
-		data.songs.sort(function (a, b) {
+		data.songs.sort((a: Song, b: Song) => {
 			return b.points - a.points;
 		});
 	} else {
-		data.songs.sort(function (a, b) {
+		data.songs.sort((a: Song, b: Song) => {
 			return a.order - b.order;
 		});
 	}
@@ -48,38 +47,39 @@ setInterval(() => {
 
 /* ----------------------------- Players */
 
-const players = ref([]);
+const players = ref<Player[]>([]);
 
 const storePlayers = () => {
 	localStorage.setItem('players', JSON.stringify(players.value));
 };
 
-const deletePlayer = (index) => {
+const deletePlayer = (index: number) => {
 	players.value = players.value.filter((p, i) => i !== index);
 	storePlayers();
 };
 
-const renamePlayer = (obj) => {
+const renamePlayer = (obj: { index: number, name: string}) => {
 	players.value[obj.index].name = obj.name;
 	storePlayers();
 };
 
-const changedRanking = (obj) => {
+const changedRanking = (obj: { index: number, ranking: Song[]}) => {
 	players.value[obj.index].ranking = obj.ranking;
 	storePlayers();
 };
 
 const addPlayer = () => {
-	players.value.push({
+	const newPlayer: Player = {
 		name: 'Player ' + (players.value.length + 1),
 		ranking: []
-	});
+	};
+	players.value.push(newPlayer);
 	storePlayers();
 };
 
 onMounted(() => {
 	if (localStorage.getItem('players')) {
-		players.value = JSON.parse(localStorage.getItem('players'));
+		players.value = JSON.parse(localStorage.getItem('players') || '');
 	}
 });
 
