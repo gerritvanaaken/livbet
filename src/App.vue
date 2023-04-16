@@ -1,102 +1,162 @@
+<script setup lang="ts">
+
+import {ref, onMounted} from 'vue';
+import BetSongs from './components/BetSongs.vue';
+import BetPlayers from './components/BetPlayers.vue';
+import BetReadme from './components/BetReadme.vue';
+
+import type {SongData} from './@types/livbet';
+
+/* ----------------------------- Songs */
+
+const songdata = ref<SongData>({
+	meta: {
+		formatversion: '1',
+		day: '1900-01-01',
+		showtype: 'Grand Final',
+		bettingLocked: false,
+		finished: false
+	},
+	songs: []
+});
+
+
+const fetchSongs = async () => {
+	//const songurl = 'songs.json';
+	const songurl = 'https://esc.praegnanz.de/songs.json';
+
+	const response = await fetch(songurl + '?v=' + Date.now());
+	const data = await response.json();
+
+	if (data.meta.bettingLocked) {
+		data.songs.sort(function (a, b) {
+			return b.points - a.points;
+		});
+	} else {
+		data.songs.sort(function (a, b) {
+			return a.order - b.order;
+		});
+	}
+	songdata.value = data;
+};
+
+fetchSongs();
+
+setInterval(() => {
+	fetchSongs();
+}, 3000);	
+
+/* ----------------------------- Players */
+
+const players = ref([]);
+
+const storePlayers = () => {
+	localStorage.setItem('players', JSON.stringify(players.value));
+};
+
+const deletePlayer = (index) => {
+	players.value = players.value.filter((p, i) => i !== index);
+	storePlayers();
+};
+
+const renamePlayer = (obj) => {
+	players.value[obj.index].name = obj.name;
+	storePlayers();
+};
+
+const changedRanking = (obj) => {
+	players.value[obj.index].ranking = obj.ranking;
+	storePlayers();
+};
+
+const addPlayer = () => {
+	players.value.push({
+		name: 'Player ' + (players.value.length + 1),
+		ranking: []
+	});
+	storePlayers();
+};
+
+onMounted(() => {
+	if (localStorage.getItem('players')) {
+		players.value = JSON.parse(localStorage.getItem('players'));
+	}
+});
+
+/* ----------------------------- Readme */
+
+const readme = ref(false);
+const toggleReadme = () => {
+	readme.value = !readme.value;
+};
+
+</script>
+
 <template>
-	<div id="app" class="app">
+	<div 
+		id="app" 
+		class="app"
+	>
 		<header class="app__header">
-			<h1 class="app__headline">#livbet</h1>
+			<h1 class="app__headline">
+				#livbet
+			</h1>
 			
 			<div class="app__phases">
-				<div class="app__phase app__phase--1" :class="{ 'app__phase--active': !songdata.meta.bettingLocked }">Phase 1: <small class="app__phaseremark">Guessing</small></div>
-				<div class="app__phase app__phase--2" :class="{ 'app__phase--active': songdata.meta.bettingLocked }">Phase 2: <small class="app__phaseremark">Resulting</small></div>
+				<div 
+					class="app__phase app__phase--1" 
+					:class="{ 'app__phase--active': !songdata.meta.bettingLocked }"
+				>
+					Phase 1: <small class="app__phaseremark">Guessing</small>
+				</div>
+
+				<div 
+					class="app__phase app__phase--2" 
+					:class="{ 'app__phase--active': songdata.meta.bettingLocked }"
+				>
+					Phase 2: <small class="app__phaseremark">Resulting</small>
+				</div>
 			</div>
-			<button v-if="!songdata.meta.bettingLocked" class="app__button app__button--add" @click="addPlayer()">Add New Player</button>
-			<button class="app__button app__button--readme" @click="toggleReadme()">How To / Legal</button>
-			<div class="app__subline">The betting game for Liverpool 2023</div>
+
+			<button 
+				v-if="!songdata.meta.bettingLocked" 
+				class="app__button app__button--add" 
+				@click="addPlayer()"
+			>
+				Add New Player
+			</button>
+			
+			<button 
+				class="app__button app__button--readme" 
+				@click="toggleReadme()"
+			>
+				How To / Legal
+			</button>
+
+			<div class="app__subline">
+				The betting game for Liverpool 2023
+			</div>
 		</header>
 		<div class="app__betarea">
-			<bet-songs :songs="songdata.songs" :meta="songdata.meta"></bet-songs>
-			<bet-players :players="players" :songs="songdata.songs" :meta="songdata.meta"></bet-players>
+			<BetSongs 
+				:songs="songdata.songs" 
+				:meta="songdata.meta" 
+			/>
+			<BetPlayers 
+				:key="players.length"
+				:players="players" 
+				:songs="songdata.songs" 
+				:meta="songdata.meta"
+				@delete-player="deletePlayer"
+				@rename-player="renamePlayer"
+				@changed-ranking="changedRanking"
+			/>
 		</div>
 		<transition name="fade">
-			<bet-readme v-if="readme"></bet-readme>
+			<BetReadme v-if="readme" />
 		</transition>
 	</div>
 </template>
-
-<script>
-import Songs from './components/Songs.vue';
-import Players from './components/Players.vue';
-import Readme from './components/Readme.vue';
-
-export default {
-	name: 'app',
-	components: {
-		'bet-songs': Songs,
-		'bet-players': Players,
-		'bet-readme': Readme
-	},
-	methods: {
-		async fetchSongs () {
-			//var songurl = process.env.BASE_URL+'songs.json';
-			const songurl = 'https://esc.praegnanz.de/songs.json';
-
-			const response = await fetch(songurl+'?v=' + Date.now());
-  		const data = await response.json();
-  	
-			if (data.meta.bettingLocked) {
-				data.songs.sort(function(a, b){
-					return b.points - a.points;
-				});
-			} else {
-				data.songs.sort(function(a, b){
-					return a.order - b.order;
-				});
-			}
-			this.songdata = data;
-		},
-		addPlayer() {
-			this.players.push({
-				name: 'Player '+ (this.players.length + 1),
-				ranking: []
-			})
-		},
-		toggleReadme() {
-			this.readme = !this.readme;
-		}
-	},
-	created () {
-		this.fetchSongs();
-		setInterval(this.fetchSongs, 10000);
-	},
-	mounted () {
-		if (localStorage.getItem('players')) {
-			this.players = JSON.parse(localStorage.getItem('players'));
-		}
-	},
-	data () {
-		return {
-			songdata: {
-				"meta": {
-					"formatversion": "1",
-					"day": "XXXX-XX-XX",
-					"showtype": "XXX",
-					"bettingLocked": false,
-					"finished": false
-				},
-				"songs": []
-			},
-			players: [],
-			readme: false
-		}
-	},
-	watch: {
-		players: {
-			handler() {
-				localStorage.setItem('players', JSON.stringify(this.players))
-			},
-			deep: true
-		}
-	}
-}
-</script>
 
 <style lang="scss">
 
@@ -124,8 +184,6 @@ export default {
 	font-weight: 700;
 	font-style: normal;
 }
-
-
 
 * {
 	margin: 0;

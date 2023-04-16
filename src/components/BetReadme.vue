@@ -50,14 +50,6 @@
 	</div>
 </template>
 
-<script>
-
-export default {
-	name: 'readme'
-}
-
-</script>
-
 <style lang="scss">
 .readme {
 	display: flex;

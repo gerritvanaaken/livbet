@@ -1,97 +1,132 @@
+<script setup lang="ts">
+
+import {ref} from 'vue';
+
+const emit = defineEmits(['delete']);
+
+defineProps ({
+	finished: Boolean,
+	locked: Boolean,
+	song: {
+		default: () => {},
+		type: Object
+	},
+	index: {
+		type: Number,
+		default: 0
+	}
+});
+
+const deleteSong = () => {
+	emit('delete');
+};
+
+const publicPath = ref('/'<String>);
+
+const countrylabels = ref({
+	'ALB': 'Albania',
+	'AND': 'Andorra',
+	'ARM': 'Armenia',
+	'AUS': 'Australia',
+	'AUT': 'Austria',
+	'AZE': 'Azerbaijan',
+	'BEL': 'Belgium',
+	'BLR': 'Belarus',
+	'BOS': 'Bosnia & Herzegovina',
+	'BUL': 'Bulgaria',
+	'CRO': 'Croatia',
+	'CYP': 'Cyprus',
+	'CZE': 'Czech Republic',
+	'DNK': 'Denmark',
+	'ESP': 'Spain',
+	'EST': 'Estonia',
+	'FIN': 'Finland',
+	'FRA': 'France',
+	'GBR': 'United Kingdom',
+	'GEO': 'Georgia',
+	'DEU': 'Germany',
+	'GRC': 'Greece',
+	'HUN': 'Hungary',
+	'IRL': 'Ireland',
+	'ISL': 'Iceland',
+	'ISR': 'Israel',
+	'ITA': 'Italia',
+	'LET': 'Latvia',
+	'LTU': 'Lithuania',
+	'LUX': 'Luxembourg',
+	'MKD': 'North Macedonia',
+	'MLT': 'Malta',
+	'MNE': 'Montenegro',
+	'MDA': 'Moldova',
+	'MON': 'Monaco',
+	'MOR': 'Morocco',
+	'NLD': 'The Netherlands',
+	'NOR': 'Norway',
+	'POL': 'Poland',
+	'POR': 'Portugal',
+	'ROM': 'Romania',
+	'RUS': 'Russia',
+	'SVN': 'Slovenia',
+	'SMR': 'San Marino',
+	'SRB': 'Serbia',
+	'CHE': 'Switzerland',
+	'SVK': 'Slovakia',
+	'SWE': 'Sweden',
+	'TUR': 'Turkey',
+	'UKR': 'Ukraine'
+}<Object>);
+	
+</script>
+
 <template>
-	<li class="songs__song song" :class="{ 'song--locked': locked }">
+	<li 
+		class="songs__song song" 
+		:class="{ 'song--locked': locked }"
+	>
 		<div class="song__country">
-			<img class="song__flag" v-bind:src="publicPath+'flags/' + song.country + '.svg'" width="30" height="20" :alt="'Flag of' + countrylabels[song.country]" :title="countrylabels[song.country]" />
-			<span class="song__countrycode" :title="countrylabels[song.country]">{{ song.country }}</span>
+			<img 
+				class="song__flag" 
+				:src="publicPath + 'flags/' + song.country + '.svg'" 
+				width="30" 
+				height="20" 
+				:alt="'Flag of' + countrylabels[song.country]" 
+				:title="countrylabels[song.country]" 
+			>
+			<span 
+				class="song__countrycode" 
+				:title="countrylabels[song.country]"
+			>
+				{{ song.country }}
+			</span>
 		</div>
-		<h3 class="song__title">{{ song.title }} <span class="song__points" v-if="locked">{{ song.points }}</span></h3>
-		<div class="song__artist">{{ song.artist }}</div>
-		<div class="song__rank" :class="{ 'song__rank--locked': locked }">{{ index + 1 }}</div>
-		<button class="song__delete" v-if="!locked" @click="deleteSong" title="Remove song">&times;</button>
+		<h3 class="song__title">
+			{{ song.title }} 
+			<span 
+				class="song__points" 
+				v-if="locked"
+			>
+				{{ song.points }}
+			</span>
+		</h3>
+		<div class="song__artist">
+			{{ song.artist }}
+		</div>
+		<div 
+			class="song__rank" 
+			:class="{ 'song__rank--locked': locked }"
+		>
+			{{ index + 1 }}
+		</div>
+		<button 
+			class="song__delete" 
+			v-if="!locked" 
+			@click="deleteSong" 
+			title="Remove song"
+		>
+			&times;
+		</button>
 	</li>
 </template>
-
-<script>
-export default {
-	name: 'song',
-	props: {
-		finished: {
-			type: Boolean
-		},
-		locked: {
-			type: Boolean
-		},
-		song: {
-			type: Object
-		},
-		index: {
-			type: Number
-		}
-	},
-	methods: {
-		deleteSong() {
-			this.$emit('delete');
-		},
-	},
-	data () {
-		return {
-			publicPath: '/',
-			countrylabels: {
-				"ALB": "Albania",
-				"AND": "Andorra",
-				"ARM": "Armenia",
-				"AUS": "Australia",
-				"AUT": "Austria",
-				"AZE": "Azerbaijan",
-				"BEL": "Belgium",
-				"BLR": "Belarus",
-				"BOS": "Bosnia & Herzegovina",
-				"BUL": "Bulgaria",
-				"CRO": "Croatia",
-				"CYP": "Cyprus",
-				"CZE": "Czech Republic",
-				"DNK": "Denmark",
-				"ESP": "Spain",
-				"EST": "Estonia",
-				"FIN": "Finland",
-				"FRA": "France",
-				"GBR": "United Kingdom",
-				"GEO": "Georgia",
-				"DEU": "Germany",
-				"GRC": "Greece",
-				"HUN": "Hungary",
-				"IRL": "Ireland",
-				"ISL": "Iceland",
-				"ISR": "Israel",
-				"ITA": "Italia",
-				"LET": "Latvia",
-				"LTU": "Lithuania",
-				"LUX": "Luxembourg",
-				"MKD": "North Macedonia",
-				"MLT": "Malta",
-				"MNE": "Montenegro",
-				"MDA": "Moldova",
-				"MON": "Monaco",
-				"MOR": "Morocco",
-				"NLD": "The Netherlands",
-				"NOR": "Norway",
-				"POL": "Poland",
-				"POR": "Portugal",
-				"ROM": "Romania",
-				"RUS": "Russia",
-				"SVN": "Slovenia",
-				"SMR": "San Marino",
-				"SRB": "Serbia",
-				"CHE": "Switzerland",
-				"SVK": "Slovakia",
-				"SWE": "Sweden",
-				"TUR": "Turkey",
-				"UKR": "Ukraine"
-			}
-		}
-	},
-}
-</script>
 
 <style lang="scss">
 
@@ -179,7 +214,6 @@ export default {
 		top: -.1em;
 		margin-left: .2em;
 
-		
 		.player & {
 			display: none;
 		}
@@ -225,8 +259,6 @@ export default {
 			opacity: 0;
 		}
 	}
-
-
 
 }
 
