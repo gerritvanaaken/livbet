@@ -6,7 +6,6 @@ import draggable from 'vuedraggable';
 import VueScrollTo from 'vue-scrollto';
 
 const rootEl = ref(null);
-const globalData = inject('globalData');
 
 const props = defineProps({
 	songs: {
@@ -26,16 +25,6 @@ const mysongs = ref(props.songs<Array>);
 watch(() => props.songs, () => {
 	mysongs.value = props.songs;
 });
-
-const globalStoreCandidate = (dragitem) => {
-	drag.value = true;
-	globalData.draggingCountry = dragitem.clone.getElementsByClassName('song__countrycode')[0].innerText;
-};
-
-const globalRemoveCandidate = () => {
-	drag.value = false;
-	globalData.draggingCountry = '';
-};
 
 const scrollUp = () => {
 	const scroller = rootEl.value.getElementsByClassName('songs__scroller')[0];
@@ -93,8 +82,6 @@ const changeSongs = () => {
 			<draggable 
 				@update="changeSongs"
 				v-model="mysongs" 
-				@start="globalStoreCandidate" 
-				@end="globalRemoveCandidate" 
 				:sort="false" 
 				tag="ul" 
 				:group="{ name: 'songs', pull: 'clone', put: false }"

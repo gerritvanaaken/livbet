@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {ref, inject, computed, watch} from 'vue';
+import {ref, computed, watch} from 'vue';
 import BetSong from './BetSong.vue';
 import draggable from 'vuedraggable';
 import VueScrollTo from 'vue-scrollto';
@@ -8,7 +8,6 @@ import VueScrollTo from 'vue-scrollto';
 import {Player, Song, MetaData} from '../@types/livbet';
 
 const emit = defineEmits(['deletePlayer', 'appendSong', 'renamePlayer', 'changedRanking']);
-const globalData = inject('globalData');
 
 const props = defineProps<{
 	player: Player,
@@ -37,8 +36,12 @@ watch(() => ranking.value, () => {
 	emit('changedRanking', {index: props.order, ranking: ranking.value});
 });
 
-const checkForDuplicates = () => {
-	return ranking.value.filter(s => s.country === globalData.draggingCountry).length === 0;
+const checkForDuplicates = (_from: object, _to: object, songEl: HTMLElement) => {
+	return ranking.value.filter((s) => {
+		const draggingCountry: HTMLElement | null = songEl.querySelector('.song__countrycode');
+		if (!draggingCountry) return false;
+		if (s.country === draggingCountry.innerHTML) return true;
+	}).length === 0;
 };
 
 const importSongs = () => {
