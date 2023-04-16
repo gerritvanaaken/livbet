@@ -18,3 +18,8 @@ export interface SongData {
 	meta: MetaData;
 	songs: Song[];
 }
+
+export interface Player {
+	name: string,
+	ranking: Song[]
+}

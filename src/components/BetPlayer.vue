@@ -5,29 +5,19 @@ import BetSong from './BetSong.vue';
 import draggable from 'vuedraggable';
 import VueScrollTo from 'vue-scrollto';
 
+import {Player, Song, MetaData} from '../@types/livbet';
+
 const emit = defineEmits(['deletePlayer', 'appendSong', 'renamePlayer', 'changedRanking']);
 const globalData = inject('globalData');
 
-const props = defineProps({
-	player: {
-		default: () => {},
-		type: Object
-	},
-	songs: {
-		default: () => [],
-		type: Array
-	},
-	meta: {
-		default: () => {},
-		type: Object
-	},
-	order: {
-		type: Number,
-		default: 0
-	}
-});
+const props = defineProps<{
+	player: Player,
+	songs: Song[],
+	meta: MetaData,
+	order: number
+}>();
 
-const playerName = ref(props.player.name);
+const playerName = ref<string>(props.player.name);
 
 const deletePlayer = () => {
 	emit('deletePlayer', props.order);
@@ -37,11 +27,11 @@ const renamePlayer = () => {
 	emit('renamePlayer', {index: props.order, name: playerName.value});
 };
 
-const deleteSong = (country) => {
+const deleteSong = (country: string) => {
 	ranking.value = ranking.value.filter(s => s.country !== country);
 };
 
-const ranking = ref(props.player.ranking);
+const ranking = ref<Song[]>(props.player.ranking);
 
 watch(() => ranking.value, () => {
 	emit('changedRanking', {index: props.order, ranking: ranking.value});
