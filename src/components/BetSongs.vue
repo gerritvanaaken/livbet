@@ -40,10 +40,6 @@ const scrollDown = () => {
 	});
 };
 
-const changeSongs = () => {
-	console.log('changed');
-};
-
 </script>
 
 <template>
@@ -74,7 +70,6 @@ const changeSongs = () => {
 
 		<div class="songs__scroller">
 			<draggable 
-				@update="changeSongs"
 				v-model="mysongs" 
 				:sort="false" 
 				tag="ul" 
