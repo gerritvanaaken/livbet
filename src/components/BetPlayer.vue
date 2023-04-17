@@ -2,7 +2,7 @@
 
 import {ref, computed, watch} from 'vue';
 import BetSong from './BetSong.vue';
-import draggable from 'vuedraggable';
+import draggable from 'zhyswan-vuedraggable';
 import VueScrollTo from 'vue-scrollto';
 
 import type {Player, Song, MetaData} from '../@types/livbet';

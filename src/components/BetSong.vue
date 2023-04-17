@@ -135,9 +135,7 @@ const countrylabels = ref<Record<string, string>>({
 	border-radius: .2rem;
 	cursor: e-move;
 	cursor: e-resize;
-	&:last-child {
-		margin-bottom: 0;
-	}
+
 	&:focus, &:hover {
 		background: linear-gradient(135deg, #fff 0, #aaa 100%);
 	}

@@ -2,7 +2,7 @@
 
 import {ref, watch} from 'vue';
 import BetSong from './BetSong.vue';
-import draggable from 'vuedraggable';
+import draggable from 'zhyswan-vuedraggable';
 import VueScrollTo from 'vue-scrollto';
 
 import type {Song, MetaData} from '../@types/livbet';
@@ -71,25 +71,27 @@ const scrollDown = () => {
 		<div class="songs__scroller">
 			<draggable 
 				v-model="mysongs" 
+				handle=".song"
 				:sort="false" 
-				tag="ul" 
+				tag="transition-group" 
 				:group="{ name: 'songs', pull: 'clone', put: false }"
 				animation="300" 
 				class="songs__list"
 				:component-data="{
 					tag: 'ul',
-					type: 'transition-group',
 					name: 'flip-list'
 				}"
 				item-key="country"
 			>
 				<template #item="{element, index}">
-					<BetSong 
-						:index="index"
-						:song="element" 
-						:locked="meta.bettingLocked" 
-						:finished="meta.finished"
-					/>
+					<div class="songs__songwrap">
+						<BetSong 		
+							:index="index"
+							:song="element" 
+							:locked="meta.bettingLocked" 
+							:finished="meta.finished"
+						/>
+					</div>
 				</template>
 			</draggable>
 		</div>
