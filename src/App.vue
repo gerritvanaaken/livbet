@@ -21,8 +21,8 @@ const songdata = ref<SongData>({
 });
 
 const fetchSongs = async () => {
-	const songurl = 'songs.json';
-	//const songurl = 'https://esc.praegnanz.de/songs.json';
+	//const songurl = 'songs.json';
+	const songurl = 'https://esc.praegnanz.de/songs.json';
 
 	const response = await fetch(songurl + '?v=' + Date.now());
 	const data = await response.json();

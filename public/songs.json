@@ -1,7 +1,7 @@
 {
 	"meta": {
 		"formatversion": "1",
-		"day": "2023-05-14",
+		"day": "2023-05-13",
 		"showtype": "Grand Final",
 		"bettingLocked": false,
 		"finished": false		
@@ -11,281 +11,262 @@
 			"country": "ALB",
 			"order": 1,
 			"points": 0,
-			"title": "Sekret",
-			"artist": "Ronela Hajati"
+			"artist": "Albina & Familja Kelmendi",
+			"title": "Duje"
 		},
 		{
 			"country": "ARM",
 			"order": 2,
 			"points": 0,
-			"title": "Snap",
-			"artist": "Rosa Linn"
+			"artist": "Brunette",
+			"title": "Future Lover"
 		},
 		{
 			"country": "AUS",
 			"order": 3,
 			"points": 0,
-			"title": "Not The Same",
-			"artist": "Sheldon Riley"
+			"artist": "Voyager",
+			"title": "Promise"
 		},
 		{
 			"country": "AUT",
 			"order": 4,
 			"points": 0,
-			"title": "Halo",
-			"artist": "LUM!X feat. Pia Maria"
+			"artist": "Teya & Salena",
+			"title": "Who The Hell Is Edgar?"
 		},
 		{
 			"country": "AZE",
 			"order": 5,
 			"points": 0,
-			"title": "Fade To Black",
-			"artist": "Nadir Rustamli"
+			"artist": "TuralTuranX",
+			"title": "Tell Me More"
 		},
 		{
 			"country": "BEL",
 			"order": 6,
 			"points": 0,
-			"title": "Miss You",
-			"artist": "Jérémie Makiese"
+			"artist": "Gustaph",
+			"title": "Because Of You"
 		},
 		{
-			"country": "BUL",
+			"country": "HRV",
 			"order": 7,
 			"points": 0,
-			"title": "Intention",
-			"artist": "Intelligent Music Project"
-		},
-		{
-			"country": "CRO",
-			"order": 8,
-			"points": 0,
-			"title": "Guilty Pleasure",
-			"artist": "Mia Dimšić"
+			"artist": "Let 3",
+			"title": "Mama ŠČ!"
 		},
 		{
 			"country": "CYP",
-			"order": 9,
+			"order": 8,
 			"points": 0,
-			"title": "Ela",
-			"artist": "Andromache"
+			"artist": "Andrew Lambrou",
+			"title": "Break A Broken Heart"
 		},
 		{
 			"country": "CZE",
-			"order": 10,
+			"order": 9,
 			"points": 0,
-			"title": "Lights Off",
-			"artist": "We Are Domi"
+			"artist": "Vesna",
+			"title": "My Sister’s Crown"
 		},
 		{
 			"country": "DEN",
-			"order": 11,
+			"order": 10,
 			"points": 0,
-			"title": "The Show",
-			"artist": "REDDI"
+			"artist": "Reiley",
+			"title": "Breaking My Heart"
 		},
 		{
 			"country": "EST",
-			"order": 12,
+			"order": 11,
 			"points": 0,
-			"title": "Hope",
-			"artist": "Stefan"
+			"artist": "Alika",
+			"title": "Bridges"
 		},
 		{
 			"country": "FIN",
-			"order": 13,
+			"order": 12,
 			"points": 0,
-			"title": "Jezebel",
-			"artist": "The Rasmus"
+			"artist": "Käärijä",
+			"title": "Cha Cha Cha"
 		},
 		{
 			"country": "FRA",
-			"order": 14,
+			"order": 13,
 			"points": 0,
-			"title": "Fulenn",
-			"artist": "Alvan & Ahez"
+			"artist": "La Zarra",
+			"title": "Évidemment"
 		},
 		{
 			"country": "GEO",
-			"order": 15,
+			"order": 14,
 			"points": 0,
-			"title": "Lock Me In",
-			"artist": "Circus Mircus"
+			"artist": "Iru",
+			"title": "Echo"
 		},
 		{
 			"country": "GER",
-			"order": 16,
+			"order": 15,
 			"points": 0,
-			"title": "Rockstars",
-			"artist": "Malik Harris"
+			"artist": "Lord of the Lost",
+			"title": "Blood & Glitter"
 		},
 		{
 			"country": "GRE",
-			"order": 17,
+			"order": 16,
 			"points": 0,
-			"title": "Die Together",
-			"artist": "Amanda Georgiadi Tenfjord"
+			"artist": "Victor Vernicos",
+			"title": "What They Say"
 		},
 		{
 			"country": "ISL",
-			"order": 18,
+			"order": 17,
 			"points": 0,
-			"title": "Með Hækkandi Sól",
-			"artist": "Systur"
+			"artist": "Diljá",
+			"title": "Power"
 		},
 		{
 			"country": "IRL",
-			"order": 19,
+			"order": 18,
 			"points": 0,
-			"title": "That’s Rich",
-			"artist": "Brooke"
+			"artist": "Wild Youth",
+			"title": "We Are One"
 		},
 		{
 			"country": "ISR",
-			"order": 20,
+			"order": 19,
 			"points": 0,
-			"title": "I.M",
-			"artist": "Michael Ben David"
+			"artist": "Noa Kirel",
+			"title": "Unicorn"
 		},
 		{
 			"country": "ITA",
-			"order": 21,
+			"order": 20,
 			"points": 0,
-			"title": "Brividi",
-			"artist": "Mahmood & BLANCO"
+			"artist": "Marco Mengoni",
+			"title": "Due Vite"
 		},
 		{
 			"country": "LVA",
-			"order": 22,
+			"order": 21,
 			"points": 0,
-			"title": "Eat Your Salad",
-			"artist": "Citi Zēni"
+			"artist": "Sudden Lights",
+			"title": "Aijaā"
 		},
 		{
 			"country": "LTU",
-			"order": 23,
+			"order": 22,
 			"points": 0,
-			"title": "Sentimentai",
-			"artist": "Monika Liu"
+			"artist": "Monika Linkyteė",
+			"title": "Stay"
 		},
 		{
 			"country": "MLT",
-			"order": 24,
+			"order": 23,
 			"points": 0,
-			"title": "I Am What I Am",
-			"artist": "Emma Muscat"
+			"artist": "The Busker",
+			"title": "Dance (Our Own Party)"
 		},
 		{
 			"country": "MDA",
-			"order": 25,
+			"order": 24,
 			"points": 0,
-			"title": "Trenulețul",
-			"artist": "Zdob şi Zdub & Advahov Brothers"
-		},
-		{
-			"country": "MNE",
-			"order": 26,
-			"points": 0,
-			"title": "Breathe",
-			"artist": "Vladana"
+			"artist": "Pasha Parfeni",
+			"title": "Soarele şi Luna"
 		},
 		{
 			"country": "NED",
-			"order": 27,
+			"order": 25,
 			"points": 0,
-			"title": "De Diepte",
-			"artist": "S10"
-		},
-		{
-			"country": "MKD",
-			"order": 28,
-			"points": 0,
-			"title": "Circles",
-			"artist": "Andrea"
+			"artist": "Mia Nicolai & Dion Cooper",
+			"title": "Burning Daylight"
 		},
 		{
 			"country": "NOR",
-			"order": 29,
+			"order": 26,
 			"points": 0,
-			"title": "Give That Wolf A Banana",
-			"artist": "Subwoolfer"
+			"artist": "Alessandra",
+			"title": "Queen of Kings"
 		},
 		{
 			"country": "POL",
-			"order": 30,
+			"order": 27,
 			"points": 0,
-			"title": "River",
-			"artist": "Ochman"
+			"artist": "Blanka",
+			"title": "Solo"
 		},
 		{
 			"country": "POR",
-			"order": 31,
+			"order": 28,
 			"points": 0,
-			"title": "Saudade, Saudade",
-			"artist": "MARO"
+			"artist": "Mimicat",
+			"title": "Ai Coração"
 		},
 		{
 			"country": "ROU",
-			"order": 32,
+			"order": 29,
 			"points": 0,
-			"title": "Llámame",
-			"artist": "WRS"
+			"artist": "Theodor Andrei",
+			"title": "D.G.T. (Off and On)"
 		},
 		{
 			"country": "SMR",
-			"order": 33,
+			"order": 30,
 			"points": 0,
-			"title": "Stripper",
-			"artist": "Achille Lauro"
+			"artist": "Piqued Jacks",
+			"title": "Like An Animal"
 		},
 		{
 			"country": "SRB",
-			"order": 34,
+			"order": 31,
 			"points": 0,
-			"title": "In Corpore Sano",
-			"artist": "Konstrakta"
+			"artist": "Luke Black",
+			"title": "Samo Mi Se Spava"
 		},
 		{
 			"country": "SVN",
-			"order": 35,
+			"order": 32,
 			"points": 0,
-			"title": "Disko",
-			"artist": "LPS"
+			"artist": "Joker Out",
+			"title": "Carpe Diem"
 		},
 		{
 			"country": "ESP",
-			"order": 36,
+			"order": 33,
 			"points": 0,
-			"title": "SloMo",
-			"artist": "Chanel"
+			"artist": "Blanca Paloma",
+			"title": "Eaea"
 		},
 		{
 			"country": "SWE",
-			"order": 37,
+			"order": 34,
 			"points": 0,
-			"title": "Hold Me Closer",
-			"artist": "Cornelia Jakobs"
+			"artist": "Loreen",
+			"title": "Tattoo"
 		},
 		{
 			"country": "SUI",
-			"order": 38,
+			"order": 35,
 			"points": 0,
-			"title": "Boys Do Cry",
-			"artist": "Marius Bear"
+			"artist": "Remo Forrer",
+			"title": "Watergun"
 		},
 		{
 			"country": "UKR",
-			"order": 39,
+			"order": 36,
 			"points": 0,
-			"title": "Stefania",
-			"artist": "Kalush Orchestra"
+			"artist": "TVORCHI",
+			"title": "Heart Of Steel"
 		},
 		{
 			"country": "UK",
-			"order": 40,
+			"order": 37,
 			"points": 0,
-			"title": "SPACE MAN",
-			"artist": "Sam Ryder"
+			"artist": "Mae Muller",
+			"title": "I Wrote A Song"
 		}
+
+	
 	]
 }
