@@ -160,13 +160,15 @@ const score = computed(() => {
 				item-key="country"
 			>
 				<template #item="{element, index}">
-					<BetSong
-						:finished="false"
-						:index="index"
-						:song="element" 
-						:locked="meta.bettingLocked" 
-						@delete="deleteSong(element.country)"
-					/>
+					<li>
+						<BetSong
+							:finished="false"
+							:index="index"
+							:song="element" 
+							:locked="meta.bettingLocked" 
+							@delete="deleteSong(element.country)"
+						/>
+					</li>
 				</template>
 			</draggable>
 		</div>

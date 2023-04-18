@@ -84,14 +84,14 @@ const scrollDown = () => {
 				item-key="country"
 			>
 				<template #item="{element, index}">
-					<div class="songs__songwrap">
+					<li>
 						<BetSong 		
 							:index="index"
 							:song="element" 
 							:locked="meta.bettingLocked" 
 							:finished="meta.finished"
 						/>
-					</div>
+					</li>
 				</template>
 			</draggable>
 		</div>

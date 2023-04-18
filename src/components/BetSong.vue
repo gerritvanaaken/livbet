@@ -75,7 +75,7 @@ const countrylabels = ref<Record<string, string>>({
 </script>
 
 <template>
-	<li 
+	<div 
 		class="songs__song song" 
 		:class="{ 'song--locked': locked }"
 	>
@@ -121,7 +121,7 @@ const countrylabels = ref<Record<string, string>>({
 		>
 			&times;
 		</button>
-	</li>
+	</div>
 </template>
 
 <style lang="scss">
