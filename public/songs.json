@@ -3,7 +3,7 @@
 		"formatversion": "1",
 		"day": "2023-05-14",
 		"showtype": "Grand Final",
-		"bettingLocked": true,
+		"bettingLocked": false,
 		"finished": false		
 	},
 	"songs": [
